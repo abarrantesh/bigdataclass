@@ -6,6 +6,7 @@ from pyspark.sql.types import (DateType, IntegerType, FloatType, StructField,
                                StructType, TimestampType)
 
 spark = SparkSession.builder.appName("Read Transactions").getOrCreate()
+spark.sparkContext.setLogLevel("WARN")
 
 csv_schema = StructType([StructField('customer_id', IntegerType()),
                          StructField('amount', FloatType()),
