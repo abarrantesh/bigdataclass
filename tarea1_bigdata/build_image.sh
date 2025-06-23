@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build --tag tarea1_bigdata .
+docker build -t bigdata-tarea1 .
