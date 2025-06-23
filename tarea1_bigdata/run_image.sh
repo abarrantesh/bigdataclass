@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run -p 8888:8888 -i -t tarea1_bigdata /bin/bash
+docker run -it --rm -v "$PWD":/app -w /app bigdata-tarea1 bash
