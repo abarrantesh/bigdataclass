@@ -1,16 +1,12 @@
-FROM openjdk:14-alpine
+FROM python:3.10-slim
 
-ENV SPARK_HOME=/usr/lib/python3.7/site-packages/pyspark
+WORKDIR /app
+COPY . /app
 
-RUN apk add bash && \
-  apk add nano && \
-  apk add postgresql-client && \
-  apk add python3 && \
-  pip3 install --upgrade pip && \
-  pip3 install pyspark && \
-  pip3 install pytest && \
-  ln /usr/bin/python3.7 /usr/bin/python
+RUN apt-get update && \
+    apt-get install -y openjdk-11-jdk && \
+    pip install --no-cache-dir pyspark pytest && \
+    apt-get clean;
 
-WORKDIR /src
-
-COPY . /src
+ENV JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+CMD ["bash"]
