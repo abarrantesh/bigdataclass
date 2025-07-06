@@ -1,2 +1,2 @@
 #!/bin/bash
-spark-submit programaprincipal.py
+spark-submit src/programaprincipal.py data/*.json
