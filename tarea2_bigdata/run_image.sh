@@ -1,3 +1,2 @@
 #!/bin/bash
-pytest tests/
-spark-submit programaprincipal.py data/*.json
+docker run -p 8888:8888 -i -t bigdata-tarea2 /bin/bash
